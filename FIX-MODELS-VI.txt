@@ -1,0 +1,32 @@
+UPSCALEER - FIX INSTALL: MISSING ONNX MODEL RELEASE
+=================================================
+
+NGUYEN NHAN:
+- Repo develop can model co tag models-703d93e021fa, release tag nay chua co.
+- models:fetch tra exit 2; day la truong hop can chay converter, khong phai loi Tauri/Rust.
+- Node.js v22.17.0 cua ban nho hon yeu cau Astro >=22.23.4.
+
+CACH SUA:
+1) Nang cap Node.js len 24 LTS, dong va mo lai CMD/PowerShell.
+2) Giai nen ZIP vao THU MUC GOC Upscaleer (co install.bat), chon Replace All.
+3) Chay node -v, phai la 24.x hoac 22.23.4+.
+4) Chay install.bat lai. Khong xoa upstream/ va upstream/.cache/weights.
+5) Khi release dung tag chua co, script thu repo schmarante/upscalr,
+   roi AndyLeAI/Upscaleer, sau do tu dong convert checkpoint -> ONNX.
+6) dev.bat / build.bat khi install thanh cong.
+
+LUU Y:
+- Download checkpoint va convert model co the ton nhieu GB va RAM.
+- Phai co ket noi Internet. Neu checkpoint tai loi, chay lai install.bat;
+  model checkpoint da tai va hop le se duoc cache.
+- File model xac minh SHA-256 theo manifest.
+- Desktop VẪN DUNG TAURI V2 + RUST, KHONG ELECTRON.
+- Workflow GitHub Pages co fallback convert va publish model vao GitHub
+  Releases cua repo AndyLeAI/Upscaleer. Can bat GitHub Actions va cap
+  quyen Workflows read/write de tao Releases.
+
+KIEM THU OFFLINE:
+  node scripts/test-patch.cjs
+  node scripts/test-model-fallback.cjs
+
+Khong the build EXE Windows hay tai ONNX lon trong moi truong tao patch nay.

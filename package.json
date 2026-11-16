@@ -1,0 +1,20 @@
+{
+  "name": "upscaleer-tauri-v2",
+  "productName": "Upscaleer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tauri v2 + Rust Windows and GitHub Pages wrapper for schmarante/upscalr (noncommercial)",
+  "license": "SEE UPSTREAM-LICENSE.md",
+  "scripts": {
+    "patch": "node scripts/patch-upstream.cjs",
+    "verify": "node scripts/verify.cjs",
+    "test:patch": "node scripts/test-patch.cjs",
+    "dev": "tauri dev",
+    "build:win": "tauri build --bundles nsis",
+    "build:desktop": "node scripts/build-desktop.cjs",
+    "build:web": "node scripts/patch-web.cjs && npm --prefix upstream run build"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.0.0"
+  }
+}

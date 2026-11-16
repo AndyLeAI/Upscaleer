@@ -1,0 +1,23 @@
+UPSCALEER — CHUYEN SANG TAURI V2 + RUST (KHONG ELECTRON)
+======================================================
+
+1. Tat app Upscaleer cu, tat cac cua so terminal dang su dung project.
+2. Giai nen TOAN BO Upscaleer-Tauri-v2-GitHub-Pages.zip vao thu muc project cu.
+   Chon Replace/Overwrite khi Windows hoi.
+3. CHAY LAI install.bat.
+   - No KHONG cai Electron.
+   - Neu phat hien root node_modules cu cua Electron, setup se don dep
+     root node_modules va cai lai dung @tauri-apps/cli.
+   - Folder upstream/ va cac model ONNX DA TAI duoc giu nguyen.
+4. dev.bat    -> Chay desktop Tauri v2 + Rust.
+5. build.bat  -> Build EXE + NSIS trong src-tauri/target/release/.
+6. build-web.bat / publish-github.bat -> GitHub Pages, WebGPU cua client.
+
+CAN: Node.js 24 LTS (or >=22.23.4), Git, Rust stable >=1.90 (MSVC), Visual Studio
+Build Tools (Desktop development with C++), WebView2 runtime.
+
+Neu install bi EPERM: tat tien trinh dang su dung project, xoa thu muc
+node_modules/ TAI THU MUC GOC project (KHONG xoa upstream/), roi chay lai.
+
+CHU Y: Zip khong chua app EXE da build. Can build tren Windows.
+License goc PolyForm Noncommercial 1.0.0 van ap dung.

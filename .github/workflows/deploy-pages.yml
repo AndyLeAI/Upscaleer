@@ -1,0 +1,103 @@
+name: Deploy Upscaleer to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout Upscaleer wrapper
+        uses: actions/checkout@v4
+
+      - name: Install Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Checkout original UPSCALR source (develop)
+        run: git clone --depth 1 --branch develop https://github.com/schmarante/upscalr.git upstream
+
+      - name: Apply Upscaleer UI and web patches
+        run: |
+          node scripts/patch-upstream.cjs
+          node scripts/patch-web.cjs
+
+      - name: Install Astro and ONNX Runtime Web
+        working-directory: upstream
+        run: npm ci --no-audit --no-fund
+
+      - name: Cache ONNX files and original checkpoints
+        uses: actions/cache@v4
+        with:
+          path: |
+            upstream/public/models
+            upstream/.cache/weights
+          key: upscalr-model-state-v2-${{ hashFiles('upstream/scripts/models.json', 'upstream/scripts/convert-models.mjs', 'upstream/scripts/lib/*.mjs') }}
+
+      - name: Fetch exact ONNX release or convert official checkpoints
+        run: node scripts/ensure-models.cjs
+
+      - name: Publish newly converted models on AndyLeAI GitHub Releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          source=$(node -e "console.log(require('./upstream/public/models/.upscaleer-model-state.json').source)")
+          if [ "$source" != "converted" ]; then
+            echo "Models were fetched from an existing release; no publication required."
+            exit 0
+          fi
+          tag=$(cd upstream && node scripts/models-release.mjs key)
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "Model release $tag already exists."
+          else
+            gh release create "$tag" upstream/public/models/*.onnx upstream/public/licenses/*.txt upstream/public/models/manifest.json \
+              --prerelease --target "$GITHUB_SHA" --title "Upscaleer ONNX models $tag" \
+              --notes "Converted from officially published checkpoints by the upstream upscalr Node converter. Original model and code licences apply."
+          fi
+
+      - name: Build static GitHub Pages website
+        working-directory: upstream
+        env:
+          BASE_PATH: /Upscaleer/
+          SITE_URL: https://AndyLeAI.github.io
+        run: npm run build
+
+      - name: Check GitHub Pages size limit (1 GiB)
+        run: |
+          du -sh upstream/dist
+          python3 - <<'PYLIMIT'
+          from pathlib import Path
+          size = sum(p.stat().st_size for p in Path('upstream/dist').rglob('*') if p.is_file())
+          print(f'Published assets: {size / 1024**2:.1f} MiB')
+          if size > 1024**3:
+              raise SystemExit('GitHub Pages limit is 1 GiB; remove or separately host large assets.')
+          PYLIMIT
+
+      - name: Upload static website
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: upstream/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.publish.outputs.page_url }}
+    steps:
+      - name: Publish GitHub Pages
+        id: publish
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,247 @@
+{
+    "page": {
+        "title": "Upscaleer – nâng cấp độ phân giải ảnh ngay trên thiết bị",
+        "description": "Nâng cấp độ phân giải ảnh chụp, tranh vẽ và hình minh họa bằng AI ngay trên thiết bị. Ảnh không được tải lên máy chủ.",
+        "ogImageAlt": "Biểu tượng Upscaleer",
+        "brand": "<b>Upscaleer</b> · Nâng cấp ảnh bằng AI ngay trên thiết bị",
+        "about": "Giới thiệu"
+    },
+    "start": {
+        "title": "Kéo thả ảnh vào đây",
+        "or": "hoặc dán ảnh từ bộ nhớ tạm (Ctrl+V)",
+        "pick": "Chọn ảnh",
+        "formats": "PNG · JPEG · WebP · AVIF · GIF · BMP",
+        "privacy": "Ảnh được xử lý trực tiếp trên thiết bị của bạn, không tải lên máy chủ."
+    },
+    "drop": {
+        "title": "Thả ảnh vào đây",
+        "hint": "Ảnh chỉ được xử lý trên thiết bị của bạn."
+    },
+    "panel": {
+        "image": "Hình ảnh",
+        "noImage": "Chưa chọn ảnh",
+        "change": "Mở ảnh",
+        "content": "Loại ảnh",
+        "photo": "Ảnh chụp",
+        "drawing": "Tranh vẽ",
+        "quality": "Chất lượng",
+        "fast": "Nhanh",
+        "best": "Cao",
+        "smoothing": "Làm mịn",
+        "smoothingHint": "Mức độ khử nhiễu và làm mịn chi tiết nhỏ (da, vải) của mô hình nhanh",
+        "smoothStrong": "Mạnh",
+        "smoothMedium": "Trung bình",
+        "smoothWeak": "Nhẹ",
+        "grain": "Hạt ảnh",
+        "grainHint": "Thêm hạt mịn để tránh bề mặt quá trơn, giả; có thể thay đổi sau khi nâng cấp mà không cần chạy AI lại",
+        "grainOff": "Tắt",
+        "factor": "Hệ số",
+        "size": "{from} → {to} px",
+        "modelSize": "Tải model: {size} (một lần)",
+        "modelCached": "Model đã sẵn sàng (ngoại tuyến)",
+        "start": "Nâng cấp ảnh",
+        "again": "Nâng cấp lại",
+        "cancel": "Hủy",
+        "download": "Lưu ảnh",
+        "doneIn": "{time}",
+        "outdated": "đã thay đổi thiết lập",
+        "tooLarge": "Ảnh quá lớn để nâng {factor}× – trình duyệt chỉ hỗ trợ tối đa {max} px mỗi cạnh và {mp} megapixel.",
+        "backend": {
+            "webgpu": "Card đồ họa (WebGPU)",
+            "wasm": "Bộ xử lý (WebAssembly)",
+            "pending": "Đang tìm thiết bị xử lý …"
+        },
+        "precision": {
+            "fp16": "16 bit",
+            "fp32": "32 bit"
+        },
+        "background": "Nền ảnh",
+        "keep": "Giữ lại",
+        "remove": "Xóa nền",
+        "needCutout": "Ở mức 1×, chỉ có thể thực hiện tác vụ xóa nền.",
+        "startCutout": "Xóa nền",
+        "againCutout": "Xóa nền lại",
+        "sharpen": "Làm nét",
+        "sharpenHint": "Dành cho ảnh hơi mờ (ví dụ ảnh điện thoại): khử mờ ở độ phân giải thực trước khi nâng cấp nếu cần. Chế độ Nhanh xử lý sau khi thu nhỏ; Kỹ xử lý ở kích thước đầy đủ, chậm hơn nhưng tự nhiên hơn.",
+        "sharpenOff": "Tắt",
+        "sharpenFast": "Nhanh",
+        "sharpenThorough": "Kỹ",
+        "soft": "hơi mờ",
+        "sharpenChecking": "Đang kiểm tra độ nét …",
+        "sharpenSoft": "Ảnh hơi mờ – sẽ làm nét trước",
+        "sharpenSharp": "Ảnh đã rõ – không cần làm nét",
+        "startSharpen": "Làm nét",
+        "againSharpen": "Làm nét lại"
+    },
+    "progress": {
+        "download": "Đang tải model … {loaded} / {total}",
+        "prepare": "Đang chuẩn bị model …",
+        "tiles": "Ô xử lý {done} / {total}",
+        "eta": "còn khoảng {time}",
+        "alpha": "Đang xử lý độ trong suốt …",
+        "encode": "Đang ghi tệp …",
+        "cutout": "Đang nhận diện nền ảnh …",
+        "refine": "Đang tinh chỉnh viền …",
+        "sharpenTiles": "Làm nét: ô {done} / {total}"
+    },
+    "view": {
+        "before": "Trước",
+        "after": "Sau",
+        "fit": "Vừa khung (0)",
+        "actual": "Kích thước thật (1)",
+        "divider": "Thanh so sánh trước/sau (phím mũi tên)",
+        "bg": {
+            "label": "Nền xem trước",
+            "checker": "Ô ca-rô",
+            "black": "Đen",
+            "white": "Trắng",
+            "red": "Đỏ",
+            "green": "Xanh lá",
+            "blue": "Xanh dương"
+        }
+    },
+    "notice": {
+        "noWebgpu": {
+            "title": "Không hỗ trợ WebGPU",
+            "message": "Ứng dụng sẽ xử lý bằng CPU nên mất nhiều thời gian hơn. WebGPU hoạt động tốt nhất trên Chrome hoặc Edge phiên bản mới."
+        },
+        "noModels": {
+            "title": "Thiếu model AI",
+            "message": "Các model chưa được tạo hoặc tải về (npm run models)."
+        },
+        "read": {
+            "title": "Không đọc được tệp",
+            "message": "Không thể tải {name}. Hãy chọn lại; nếu ảnh chỉ nằm trên đám mây, hãy lưu về thiết bị trước."
+        },
+        "decodeRun": {
+            "title": "Không thể xử lý ảnh",
+            "message": "Không thể giải mã {name}, thường là do thiếu bộ nhớ. Hãy đóng bớt tab và thử lại."
+        },
+        "decode": {
+            "title": "Không mở được ảnh",
+            "message": "Không hỗ trợ định dạng ảnh này: {name}"
+        },
+        "notImage": {
+            "title": "Không phải tệp ảnh",
+            "message": "{name} không phải tệp hình ảnh."
+        },
+        "formatFallback": {
+            "title": "Đã lưu dưới dạng {format}",
+            "message": "Trình duyệt không thể xuất {format}, nên kết quả được lưu không mất dữ liệu dưới dạng {target}."
+        },
+        "tileReduced": {
+            "title": "Giảm kích thước ô xử lý",
+            "message": "Bộ nhớ GPU không đủ; tiếp tục với các ô {size} px."
+        },
+        "error": {
+            "title": "Nâng cấp ảnh thất bại",
+            "download": "Không tải được model. Hãy kiểm tra kết nối mạng.",
+            "model": "Không thể khởi chạy model trên thiết bị này.",
+            "gpu-memory": "Không đủ bộ nhớ GPU, kể cả với ô xử lý nhỏ nhất.",
+            "too-large": "Ảnh kết quả vượt quá bộ nhớ trình duyệt. Hãy chọn 2× hoặc dùng ảnh nhỏ hơn.",
+            "encode": "Không thể ghi tệp, có thể vì ảnh kết quả quá lớn. Hãy thử mức 2×.",
+            "cancelled": "Đã hủy.",
+            "unknown": "Đã xảy ra lỗi không xác định."
+        },
+        "alphaFormat": {
+            "title": "Đã lưu dưới dạng {format}",
+            "message": "{format} không hỗ trợ nền trong suốt, nên ảnh đã xóa nền được lưu dưới dạng {target}."
+        },
+        "cpuFallback": {
+            "title": "Một phần tác vụ chạy bằng CPU",
+            "cutout": "Trình duyệt không thể chạy model xóa nền trên GPU, nên chuyển sang CPU (chậm hơn một chút).",
+            "upscale": "Trình duyệt không thể chạy model nâng cấp trên GPU, nên chuyển sang CPU (chậm hơn nhiều).",
+            "select": "Trình duyệt không thể chạy công cụ chọn đối tượng trên GPU, nên chuyển sang CPU (chậm hơn).",
+            "deblur": "Trình duyệt không thể chạy model làm nét trên GPU, nên chuyển sang CPU (chậm hơn nhiều)."
+        },
+        "soft": {
+            "title": "Phát hiện ảnh hơi mờ",
+            "message": "Ảnh có ít chi tiết hơn độ phân giải cho thấy, thường gặp ở ảnh điện thoại. Làm nét sẽ khử mờ ở độ phân giải thực để cho kết quả rõ hơn.",
+            "download": "Cần tải model một lần ({size}).",
+            "fast": "Làm nét nhanh",
+            "thorough": "Làm nét kỹ",
+            "no": "Không, cảm ơn"
+        },
+        "sharpenConsent": {
+            "title": "Tải model làm nét?",
+            "message": "Tính năng làm nét cần tải model một lần ({size}) và lưu trong trình duyệt. Ảnh của bạn không rời khỏi thiết bị.",
+            "load": "Tải về",
+            "cancel": "Hủy"
+        },
+        "nativeSave": {
+            "title": "Không thể lưu ảnh",
+            "message": "Lỗi khi lưu ảnh:"
+        }
+    },
+    "languages": {
+        "en_us": "English",
+        "vi_vn": "Tiếng Việt"
+    },
+    "about": {
+        "title": "Giới thiệu",
+        "close": "Đóng",
+        "description": "Nâng cấp và xóa nền ảnh bằng AI, xử lý trực tiếp trên thiết bị, ảnh không tải lên máy chủ.",
+        "author": "Tác giả",
+        "email": "Email",
+        "version": "Phiên bản",
+        "compute": "Thiết bị xử lý",
+        "language": "Ngôn ngữ",
+        "madeWith": "Thiết kế với ❤️. Được hỗ trợ bởi Claude.",
+        "openSource": "Upscaleer sử dụng các dự án mã nguồn mở tuyệt vời. Cảm ơn tất cả những người đóng góp!",
+        "runtime": "Trong trình duyệt",
+        "models": "Model AI",
+        "build": "Công cụ xây dựng",
+        "libs": {
+            "ort": "Chạy model AI trên card đồ họa (WebGPU) hoặc bộ xử lý (WebAssembly)",
+            "coi": "Cô lập nguồn chéo trên hosting tĩnh để sử dụng nhiều nhân CPU",
+            "realEsrgan": "Trọng số model ảnh chụp và tranh vẽ (đã chuyển đổi sang ONNX)",
+            "astro": "Trình tạo website",
+            "vite": "Công cụ build",
+            "tailwind": "Bộ công cụ tạo kiểu",
+            "typescript": "Ngôn ngữ lập trình",
+            "birefnet": "Xóa nền: phát hiện và xóa nền ảnh",
+            "sam": "Chọn vùng: nhận diện đối tượng tại vị trí con trỏ",
+            "nafnet": "Làm nét: khử mờ cho ảnh (trọng số chuyển sang ONNX)"
+        }
+    },
+    "edit": {
+        "start": "Chỉnh sửa vùng chọn",
+        "title": "Chỉnh sửa vùng chọn",
+        "tool": {
+            "add": "Thêm đối tượng +",
+            "sub": "Bớt đối tượng −",
+            "pan": "Di chuyển",
+            "keep": "Giữ lại",
+            "remove": "Xóa",
+            "edge": "Viền"
+        },
+        "hint": {
+            "add": "Nhấp vào đối tượng để thêm vào vùng chọn. Alt+nhấp để loại bỏ.",
+            "sub": "Nhấp vào đối tượng để loại khỏi vùng chọn. Alt+nhấp để thêm lại.",
+            "pan": "Kéo để di chuyển ảnh. Giữ phím Space để dùng chức năng này với bất kỳ công cụ nào.",
+            "keep": "Tô lên những vùng cần giữ lại.",
+            "remove": "Tô lên những vùng cần xóa.",
+            "edge": "Tô lên các đường viền mảnh như tóc hoặc lông để tinh chỉnh chính xác hơn."
+        },
+        "size": "Kích thước",
+        "ghost": "Hiển thị mờ vùng đã xóa",
+        "undo": "Hoàn tác (Ctrl+Z)",
+        "redo": "Làm lại (Ctrl+Shift+Z)",
+        "reset": "Khôi phục vùng chọn tự động",
+        "apply": "Áp dụng",
+        "cancel": "Hủy",
+        "status": {
+            "preparing": "Đang chuẩn bị chỉnh sửa …",
+            "loading": "Đang tải công cụ chọn … {loaded} / {total}",
+            "analysing": "Đang phân tích ảnh để chọn đối tượng …",
+            "ready": "Đã sẵn sàng – nhấp hoặc tô",
+            "busy": "Đang cập nhật xem trước …",
+            "failed": "Không thể dùng công cụ chọn bằng nhấp chuột, nhưng cọ vẽ vẫn hoạt động."
+        },
+        "selectLoading": "Công cụ chọn bằng nhấp chuột vẫn đang tải, vui lòng chờ.",
+        "clickFailed": "Không thể chọn đối tượng này."
+    },
+    "footer": {
+        "licenses": "Giấy phép"
+    }
+}

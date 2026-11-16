@@ -1,0 +1,11 @@
+node_modules/
+upstream/
+renderer/
+release/
+src-tauri/target/
+src-tauri/gen/
+*.log
+.cache/
+# Legacy Electron shell from older archives must never be published
+electron/
+scripts/build-windows.cjs

@@ -1,0 +1,18 @@
+[package]
+name = "upscaleer"
+version = "1.0.0"
+description = "Upscaleer - local ONNX image upscaler"
+authors = ["Upscaleer contributors"]
+edition = "2021"
+license = "LicenseRef-PolyForm-Noncommercial-1.0.0"
+
+[lib]
+name = "upscaleer_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
